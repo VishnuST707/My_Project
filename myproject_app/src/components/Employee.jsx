@@ -1,0 +1,48 @@
+export const employeeData = [
+    {
+      id: 1,
+      name: "John Doe",
+      dob: "1990-05-15",
+      email: "john.doe@example.com",
+      qualification: "Bachelor's in Computer Science",
+      batch: "2014",
+      salary: 80000,
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      dob: "1985-12-20",
+      email: "jane.smith@example.com",
+      qualification: "Master's in Business Administration",
+      batch: "2009",
+      salary: 95000,
+    },
+    {
+      id: 3,
+      name: "Michael Johnson",
+      dob: "1993-08-03",
+      email: "michael.johnson@example.com",
+      qualification: "Bachelor's in Mechanical Engineering",
+      batch: "2016",
+      salary: 75000,
+    },
+    {
+      id: 4,
+      name: "Emily Brown",
+      dob: "1991-04-12",
+      email: "emily.brown@example.com",
+      qualification: "Bachelor's in Electrical Engineering",
+      batch: "2015",
+      salary: 82000,
+    },
+    {
+      id: 5,
+      name: "David Lee",
+      dob: "1988-10-28",
+      email: "david.lee@example.com",
+      qualification: "Master's in Finance",
+      batch: "2010",
+      salary: 90000,
+    },
+  ];
+  
