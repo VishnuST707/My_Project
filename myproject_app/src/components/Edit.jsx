@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
+import Swal from "sweetalert2";
 
 
 export default function Edit({
@@ -22,21 +23,53 @@ export default function Edit({
 
   const handleEdit = (event) => {
     event.preventDefault();
-    const updatedEmployee = {
-      id: id,
-      name: editName,
-      dob: editDob,
-      email: editEmail,
-      qualification: editQualification,
-      batch: editBatch,
-      salary: editSalary,
-    };
-
-    const updatedEmployees = employees.map((employee) =>
-      employee.id === id ? updatedEmployee : employee
-    );
-    setEmployees(updatedEmployees);
-    setIsEditing(true);
+  
+   
+    if (!editName || !editDob || !editEmail || !editQualification || !editBatch || !editSalary) {
+      Swal.fire({
+        title: "Warning!",
+        text: "Please fill in all the fields before submitting.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+  
+   
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to save these changes?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, update it!",
+      cancelButtonText: "No, cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        const updatedEmployee = {
+          id: id,
+          name: editName,
+          dob: editDob,
+          email: editEmail,
+          qualification: editQualification,
+          batch: editBatch,
+          salary: editSalary,
+        };
+  
+        const updatedEmployees = employees.map((employee) =>
+          employee.id === id ? updatedEmployee : employee
+        );
+        setEmployees(updatedEmployees);
+        setIsEditing(true);
+  
+        Swal.fire({
+          title: "Updated!",
+          text: "Employee details have been updated.",
+          icon: "success",
+          timer: 1500,
+        });
+      }
+    });
   };
 
   return (

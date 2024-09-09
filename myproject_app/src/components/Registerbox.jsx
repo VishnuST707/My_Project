@@ -26,6 +26,17 @@ export default function Registerbox({ setEmployees, employees, setIsAdding }) {
 
   const handleAdd = (event) => {
     event.preventDefault();
+    const { name, dob, email, qualification, batch, salary } = formData;
+  
+    if (!name || !dob || !email || !qualification || !batch || !salary) {
+      Swal.fire({
+        title: "Warning!",
+        text: "Please fill in all the fields before submitting.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return; 
+    }
     setEmployees([...employees, formData]);
     setIsAdding(true);
     Swal.fire({
